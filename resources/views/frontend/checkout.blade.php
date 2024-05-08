@@ -29,7 +29,7 @@
                                     <input type="email" class="form-control" id="exampleInputEmail" name="email"
                                         placeholder="Enter your email" value="{{ Auth::user()->email }}" readonly>
                                 </div>
-                            </div>
+                            </div>                                                                                                                                                                                                                                                  
                             <div class="col-6 mt-3">
                                 <div class="form-group">
                                     <label for="exampleSelectCity">City:</label>

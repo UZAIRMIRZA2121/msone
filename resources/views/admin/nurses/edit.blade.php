@@ -89,12 +89,12 @@
 
     <div class="row">
         <div class="form-group col-lg-12">
-            <label for="address">Address</label>
+            <label for="address">Description</label>
             <textarea class="form-control" id="address" name="desc">{{ $nurse->desc }}</textarea>
         </div>
         <div class="form-group col-lg-12">
             <label for="address">Current Image</label> <br>
-            <img src="{{ asset($nurse->img) }}" alt="{{ $nurse->img }}">
+            <img src="{{ asset($nurse->img) }}" alt="{{ $nurse->img }}" width="200">
 
         </div>
     </div>

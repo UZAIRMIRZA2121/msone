@@ -36,7 +36,7 @@
                 <select class="form-control" id="categoryName" name="main_category_id">
                     <option value="">Select main category </option>
                     @foreach($maincategories as $miancategory)
-                    <option value="{{$miancategory->id}}"  {{$miancategory->id ==  $category->id ? 'selected':''}}>{{$miancategory->name}}</option>
+                    <option value="{{$miancategory->id}}"  {{$miancategory->id ==  $category->main_category_id ? 'selected':''}}>{{$miancategory->name}}</option>
                     @endforeach
                     <!-- Add more options as needed -->
                 </select>

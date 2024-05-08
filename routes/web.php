@@ -23,11 +23,6 @@ Route::get('subcategories', function(Request $request) {
     
     return response()->json($subcategories);
 })->name('subcategories');
-Route::get('/notverify', function () {
-    Auth::logout();
-    Session::flash('alert', 'You are not verified. Please log in with correct credentials.');
-    return redirect()->back();
-})->name('not.verify');
 
 Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::get('/category/{category?}', [FrontendController::class, 'category'])->name('category');
@@ -53,9 +48,9 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        if (Auth::user()->role == 'admin' && Auth::user()->remember_token == NULL) {
+        if (Auth::user()->role == 'admin' ) {
             return redirect()->route('admin.dashboard');
-        } elseif (Auth::user()->role == 'user' && Auth::user()->remember_token == NULL) {
+        } elseif (Auth::user()->role == 'user' ) {
             return redirect()->route('user.dashboard');
         } else {
             return redirect()->route('not.verify');

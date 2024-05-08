@@ -98,7 +98,7 @@ class FrontendController extends Controller
             return view('frontend.single-nurse-details', compact('nurse'));
         } else {
             // If no nurse ID is provided, fetch all nurses
-            $nurses = Nurse::all();
+            $nurses = Nurse::where('availability','=',1)->get();
             // Return the view to display all nurses
             return view('frontend.all-nurses', compact('nurses'));
         }

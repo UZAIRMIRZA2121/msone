@@ -163,7 +163,7 @@
                         </div>
                     </form>
                 </li>
-                @auth
+             
                     @if (!$totalItems > 0)
                         <li><a class="main-nav-link nav-cta" href="{{ route('cart.show') }}">Cart <ion-icon
                                     name="cart" style="color: white; height: 1.6rem;"></ion-icon></a></li>
@@ -171,7 +171,7 @@
                         <li><a class="main-nav-link nav-cta" href="{{ route('cart.show') }}">Cart <span
                                     class="badge bg-danger "> {{ $totalItems }}</span></a></li>
                     @endif
-                @endauth
+            
                 <li class="dropdown">
                     <a class="main-nav-link  d-flex" href="#">
                         <span class="me-2 mt-2"> @auth

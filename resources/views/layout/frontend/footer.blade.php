@@ -80,8 +80,8 @@
             <div class="footer-content d-flex justify-content-between align-items-center">
                 <p class="text-center py-3">© 2025 MsOns Enterprises. All Rights Reserved.</p>
                 <div class="payment-methods">
-                    <img src="{{ asset('frontend-asset/img/payment/cod.png') }}" alt="Cash on Delivery">
-                    <img src="{{ asset('frontend-asset/img/payment/stripe.png') }}" alt="Stripe">
+                    <img src="{{ asset('frontend-asset/img/cod.png') }}" alt="Cash on Delivery">
+                    <img src="{{ asset('frontend-asset/img/stripe.png') }}" alt="Stripe">
                 </div>
             </div>
         </div>

@@ -177,6 +177,7 @@
                                                 <a class="btn btn-primary btn-sm mx-2" data-toggle="modal" data-target="#commentModal" data-nurse-id="{{ $nurse->id }}">
                                                     <i class="fa fa-star"></i> Rate
                                                 </a>
+                                                
                                             @elseif ($nurse->status == 'requested')
                                             <a class="btn btn-danger btn-sm mx-2" href="{{ route('nurses.request.comment', ['id' => $nurse->id]) }}">
                                                 Remove
@@ -218,10 +219,8 @@
                     <!-- Hidden input field to store nurse ID -->
                     <input type="hidden" id="nurseIdInput">
                     <!-- Add form fields for rating and comment -->
-                    <form id="commentForm" action="{{ isset($nurse) ? route('nurses.request.comment', ['id' => $nurse->id]) : '#' }}" method="POST">
+                    <form id="commentForm" action="#" method="POST"> <!-- Update the action attribute to "#" initially -->
                         @csrf
-                        <!-- Your form content here -->
-                    </form>
                     
                         <div class="rating-stars-container">
                             <input value="5" name="star" id="star-5" type="radio" />
@@ -286,6 +285,25 @@
                 var nurseId = $(e.relatedTarget).data('nurse-id');
                 // Set the nurse ID in the hidden input field of the modal
                 $('#nurseIdInput').val(nurseId);
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the button element
+            var btn = document.querySelector('.btn-primary[data-toggle="modal"]');
+            
+            // Add a click event listener to the button
+            btn.addEventListener('click', function() {
+                // Get the nurse ID from the data-nurse-id attribute
+                var nurseId = btn.getAttribute('data-nurse-id');
+                
+                // Set the value of the hidden input field in the form to the nurse ID
+                document.getElementById('nurseIdInput').value = nurseId;
+                
+                // Update the form action attribute with the nurse ID
+                var form = document.getElementById('commentForm');
+                form.action = "{{ route('nurses.request.comment', ['id' => ':nurseId']) }}".replace(':nurseId', nurseId);
             });
         });
     </script>

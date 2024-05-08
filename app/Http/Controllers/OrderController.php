@@ -26,7 +26,6 @@ class OrderController extends Controller
         if ($existingOrder) {
             // Delete the order items associated with the existing order
             OrderItem::where('order_id', $existingOrder->id)->delete();
-
             // Delete the existing order
             $existingOrder->delete();
         }
